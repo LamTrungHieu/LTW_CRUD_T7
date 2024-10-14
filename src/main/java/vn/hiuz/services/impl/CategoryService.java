@@ -1,0 +1,43 @@
+package vn.hiuz.services.impl;
+
+import java.util.List;
+
+import vn.hiuz.dao.ICategoryDao;
+import vn.hiuz.dao.impl.*;
+import vn.hiuz.entity.Category;
+import vn.hiuz.services.ICategoryService;
+
+public class CategoryService implements ICategoryService {
+	ICategoryDao cateDao = new CategoryDao();
+	@Override
+	public List<Category> findByCategoryname(String catname) {
+		return cateDao.findByCategoryname(catname);
+	}
+
+	@Override
+	public List<Category> findAll() {	
+		return cateDao.findAll();
+	}
+
+	@Override
+	public Category findById(int cateid) {	
+		return cateDao.findById(cateid);
+	}
+
+	@Override
+	public void delete(int cateid) throws Exception {
+		cateDao.delete(cateid);
+		
+	}
+
+	@Override
+	public void update(Category category) {
+		cateDao.update(category);
+	}
+
+	@Override
+	public void insert(Category category) {
+		cateDao.insert(category);
+	}
+
+}
